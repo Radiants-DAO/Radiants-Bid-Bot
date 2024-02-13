@@ -166,7 +166,7 @@ async function processIncomingMessage(data) {
                                 let currentCollectionCount = Number(currentCollectionObject.count);
                                 let currentCollectionId = currentCollectionObject.value.toString();
                                 let currentCollectionOracle = oracles.find((oracle) => oracle.account.collection.toString() === currentCollectionId);
-                                let currentCollectionFloorPrice = Number(currentCollectionOracle.floorPrice)/1000000000; // this has 9 decimals
+                                let currentCollectionFloorPrice = Number(currentCollectionOracle.account.floorPrice)/1000000000; // this has 9 decimals
                                 if(currentCollectionId !== "SUB1orE6jSMF8K627BPLXyJY5LthVyDriAxTXdCF4Cy") {
                                     let currentCollectionName = acceptedCollections[currentCollectionId];
                                     occurrenceCounter[currentCollectionName] = currentCollectionCount;
