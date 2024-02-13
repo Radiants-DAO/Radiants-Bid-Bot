@@ -181,10 +181,15 @@ async function processIncomingMessage(data) {
                             let bearsReloadedCount = occurrenceCounter['Bears Reloaded'] || 0;
                             let bapeCount = occurrenceCounter['BAPE'] || 0;
                             let lifinityCount = occurrenceCounter['LIFINITY Flares'] || 0;
+                            let dedMonkesFloorPrice = floorPriceTracker['Ded Monkes'] || 0;
+                            let bearsReloadedFloorPrice = floorPriceTracker['Bears Reloaded'] || 0;
+                            let bapeFloorPrice = floorPriceTracker['BAPE'] || 0;
+                            let lifinityFloorPrice = floorPriceTracker['LIFINITY Flares'] || 0;
 
                             mainImg = 'https://pbs.twimg.com/profile_banners/1446275363202502844/1697575408/1080x360';
 
                             let totalNftsCount = dedMonkesCount + bearsReloadedCount + bapeCount + lifinityCount;
+                            let totalFloorPrice = (dedMonkesFloorPrice*dedMonkesCount) + (bearsReloadedFloorPrice*bearsReloadedCount) + (bapeFloorPrice*bapeCount) + (lifinityFloorPrice*lifinityCount);
                             let hype = '';
                             let title = '';
 
@@ -224,7 +229,7 @@ async function processIncomingMessage(data) {
                                     .setImage(`${mainImg}`)
                                     .addFields(
                                         {
-                                            name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs\n🐵 ${BP}: **${bapeCount}x** NFTs\n🔥 ${LF}: **${lifinityCount}x** NFTs\n🏆 Total: **${totalNftsCount}** NFTs 🔥`, inline: true
+                                            name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs, **${(dedMonkesFloorPrice*dedMonkesCount).toFixed(2)}** SOL\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs, **${(bearsReloadedFloorPrice*bearsReloadedCount).toFixed(2)}** SOL\n🐵 ${BP}: **${bapeCount}x** NFTs, **${(bapeFloorPrice*bapeCount).toFixed(2)}** SOL\n🔥 ${LF}: **${lifinityCount}x** NFTs, **${(lifinityFloorPrice*lifinityCount).toFixed(2)}** SOL\n🏆 Total: **${totalNftsCount}** NFTs,  **${totalFloorPrice.toFixed(2)}** SOL 🔥`, inline: true
                                         },
                                     )
                                     .addFields(
