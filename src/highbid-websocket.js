@@ -111,6 +111,7 @@ async function processIncomingMessage(data) {
             // console.log(transaction);
 
             const occurrenceCounter = {};
+            const floorPriceTracker = {};
             const acceptedCollections = {
                 "2SBsLb5CwstwxxDmbanRdvV9vzeACRdvYEJjpPSFjJpE": "Bears Reloaded",
                 "GxPPZB5q1nsUTPw8Kkp4qUpbegrGxHiJfgzm3V43zjAy": "Ded Monkes",
@@ -157,15 +158,19 @@ async function processIncomingMessage(data) {
                             // const highestBidTs = Number(highBidIx.args.highestBidTs);
                             const highestBidderPubkey = highBidIx.args.highestBidder;
                             const highestBidPubkey = highBidIx.args.highestBid;
-                            let bidData =  await program.account.bidEscrow.fetch(highestBidPubkey);
+                            let bidData = await program.account.bidEscrow.fetch(highestBidPubkey);
                             let collectionsInBid = await bidData.collections;
+                            let oracles = await program.account.oracle.all();
                             for(let i = 0; i < collectionsInBid.length; i++) {
                                 let currentCollectionObject = collectionsInBid[i];
                                 let currentCollectionCount = Number(currentCollectionObject.count);
                                 let currentCollectionId = currentCollectionObject.value.toString();
+                                let currentCollectionOracle = oracles.find((oracle) => oracle.account.collection.toString() === currentCollectionId);
+                                let currentCollectionFloorPrice = Number(currentCollectionOracle.floorPrice)/1000000000; // this has 9 decimals
                                 if(currentCollectionId !== "SUB1orE6jSMF8K627BPLXyJY5LthVyDriAxTXdCF4Cy") {
                                     let currentCollectionName = acceptedCollections[currentCollectionId];
                                     occurrenceCounter[currentCollectionName] = currentCollectionCount;
+                                    floorPriceTracker[currentCollectionName] = currentCollectionFloorPrice;
                                 }
                             }
 
