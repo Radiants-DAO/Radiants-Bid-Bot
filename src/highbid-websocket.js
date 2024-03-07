@@ -2,11 +2,13 @@ require('dotenv').config();
 
 const WebSocket = require('ws');
 const { Client, IntentsBitField, EmbedBuilder, hyperlink } = require("discord.js");
-const { Connection } = require('@solana/web3.js');
+const { Connection, PublicKey } = require('@solana/web3.js');
 const anchor = require('@coral-xyz/anchor');
 const IDL = require('../idl/nft-bidding.json');
 const BOT = process.env.BOT;
 const CHANNEL_ID = process.env.CHANNEL_ID;
+const bs58 = require('bs58');
+const config = require('../src/assets/discords.json');
 
 const client = new Client({
     intents: [
@@ -31,7 +33,7 @@ const providerConnection = new Connection(providerUrl, {
 });
 
 const readOnlyWallet = {
-    publicKey: Keypair.generate().publicKey,
+    publicKey: anchor.web3.Keypair.generate().publicKey,
     signTransaction: async (tx) => {
         throw new Error(
             "Can't call signTransaction() on read only wallet"
@@ -45,11 +47,11 @@ const readOnlyWallet = {
 };
 // Set the provider
 // Returns a provider read from the ANCHOR_PROVIDER_URL environment variable
-export const provider = new anchor.AnchorProvider(providerConnection, readOnlyWallet, providerOptions)
+const provider = new anchor.AnchorProvider(providerConnection, readOnlyWallet, providerOptions)
 anchor.setProvider(provider);
 
 // Generate the program client from IDL
-export const program = new anchor.Program(IDL, new PublicKey("bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy"), provider);
+const program = new anchor.Program(IDL, new PublicKey("bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy"), provider);
 // Function to initiate or reinitiate WebSocket connection
 function initiateHighBidWebSocketConnection(program = "bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy") {
     // const ws = new WebSocket(`wss://atlas-devnet.helius-rpc.com?api-key=${process.env.HELIUS_API_KEY}`); // DEVNET
@@ -75,7 +77,7 @@ function handleWebSocketError(err) {
 
 function handleWebSocketClose() {
     console.log('High Bid WebSocket is closed. Attempting to reconnect...');
-    setTimeout(initiateHighBidWebSocketConnection(program), 5000); // Reconnect after 5 seconds
+    setTimeout(() => initiateHighBidWebSocketConnection(), 5000); // Reconnect after 5 seconds
 }
 
 // Function to send a request to the WebSocket server
@@ -165,7 +167,9 @@ async function processIncomingMessage(data) {
                                 let currentCollectionObject = collectionsInBid[i];
                                 let currentCollectionCount = Number(currentCollectionObject.count);
                                 let currentCollectionId = currentCollectionObject.value.toString();
-                                let currentCollectionOracle = oracles.find((oracle) => oracle.account.collection.toString() === currentCollectionId);
+                                // let currentCollectionOracle = oracles.find((oracle) => oracle.account.collection.toString() === currentCollectionId);
+                                let currentCollectionOracle = oracles.find((oracle) => oracle && oracle.account && oracle.account.collection && oracle.account.collection.toString() === currentCollectionId);
+                                // console.log(Number(currentCollectionOracle?.account?.floorPrice)/1000000000);
                                 let currentCollectionFloorPrice = Number(currentCollectionOracle.account.floorPrice)/1000000000; // this has 9 decimals
                                 if(currentCollectionId !== "SUB1orE6jSMF8K627BPLXyJY5LthVyDriAxTXdCF4Cy") {
                                     let currentCollectionName = acceptedCollections[currentCollectionId];
@@ -190,30 +194,9 @@ async function processIncomingMessage(data) {
 
                             let totalNftsCount = dedMonkesCount + bearsReloadedCount + bapeCount + lifinityCount;
                             let totalFloorPrice = (dedMonkesFloorPrice*dedMonkesCount) + (bearsReloadedFloorPrice*bearsReloadedCount) + (bapeFloorPrice*bapeCount) + (lifinityFloorPrice*lifinityCount);
-                            let hype = '';
-                            let title = '';
-
-                            switch (true) {
-                                case (totalNftsCount < 10):
-                                    hype = '🔥'
-                                    title = 'A new offering has just been presented.';
-                                    break;
-                                case (totalNftsCount > 10 && totalNftsCount < 50):
-                                    hype = '🔥🔥'
-                                    title = 'A remarkable new offering has been revealed, drawing considerable attention.';
-                                    break;
-                                case (totalNftsCount > 50):
-                                    hype = '🔥🔥🔥'
-                                    title = 'A truly sensational and unprecedented offering has just been unveiled, stirring immense excitement and awe.';
-                                    break;
-                                default:
-                                    console.log('Default Switch');
-                            }
 
                             // Discord displaying
                             (async () => {
-                                const channel = await client.channels.fetch(CHANNEL_ID);
-
                                 const solscan = hyperlink('Solscan', `https://solscan.io/account/${highestBidderPubkey}`);
                                 const solanafm = hyperlink('SolanaFM', `https://solana.fm/address/${highestBidderPubkey}`);
 
@@ -223,13 +206,14 @@ async function processIncomingMessage(data) {
                                 const LF = hyperlink('LIFINITY Flares', 'https://twitter.com/Lifinity_io');
 
                                 const newBid = new EmbedBuilder()
-                                    .setTitle(BOT)
-                                    .setDescription(`☀️ _**${title}** ${hype}_`) // can change the emoji when inside the said service, right click on the emoji, copy text
+                                    .setTitle(`**_Prepare the incinerator..._**`)
+                                    .setDescription(`**A new high bid has been set!** 🔥`) // can change the emoji when inside the said service, right click on the emoji, copy text
                                     .setColor('#fce185')
                                     .setImage(`${mainImg}`)
                                     .addFields(
                                         {
-                                            name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs, **${(dedMonkesFloorPrice*dedMonkesCount).toFixed(2)}** SOL\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs, **${(bearsReloadedFloorPrice*bearsReloadedCount).toFixed(2)}** SOL\n🐵 ${BP}: **${bapeCount}x** NFTs, **${(bapeFloorPrice*bapeCount).toFixed(2)}** SOL\n🔥 ${LF}: **${lifinityCount}x** NFTs, **${(lifinityFloorPrice*lifinityCount).toFixed(2)}** SOL\n🏆 Total: **${totalNftsCount}** NFTs,  **${totalFloorPrice.toFixed(2)}** SOL 🔥`, inline: true
+                                            name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs | Floor: **${dedMonkesFloorPrice}** | Value: **${(dedMonkesFloorPrice*dedMonkesCount).toFixed(2)}**\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs | Floor: **${bearsReloadedFloorPrice}** | Value: **${(bearsReloadedFloorPrice*bearsReloadedCount).toFixed(2)}**\n🐵 ${BP}: **${bapeCount}x** NFTs | Floor: **${bapeFloorPrice}** | Value: **${(bapeFloorPrice*bapeCount).toFixed(2)}**\n🔥 ${LF}: **${lifinityCount}x** NFTs | Floor: **${lifinityFloorPrice}** | Value: **${(lifinityFloorPrice*lifinityCount).toFixed(2)}**\n🏆 Total: **${totalNftsCount}** NFTs 💛 | Value: **${totalFloorPrice.toFixed(2)}** SOL`, inline: true
+                                            // name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs\n🐵 ${BP}: **${bapeCount}x** NFTs\n🔥 ${LF}: **${lifinityCount}x** NFTs\n🏆 Total: **${totalNftsCount}** NFTs 💛`, inline: true
                                         },
                                     )
                                     .addFields(
@@ -275,8 +259,3 @@ async function processIncomingMessage(data) {
 client.login(process.env.TOKEN);
 //initiateHighBidWebSocketConnection();
 module.exports = { initiateHighBidWebSocketConnection };
-
-
-
-
-
