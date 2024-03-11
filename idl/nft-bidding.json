@@ -22,27 +22,27 @@
         },
         {
           "name": "auction",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         },
         {
           "name": "nft",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         },
         {
           "name": "nftMetadata",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         },
         {
           "name": "nftEdition",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         },
         {
           "name": "auctionNft",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         },
         {
@@ -104,6 +104,7 @@
               {
                 "kind": "account",
                 "type": "publicKey",
+                "account": "ConfigAccount",
                 "path": "config_account"
               }
             ],
@@ -193,6 +194,7 @@
               {
                 "kind": "account",
                 "type": "publicKey",
+                "account": "ConfigAccount",
                 "path": "config_account"
               }
             ],
@@ -609,6 +611,396 @@
       ]
     },
     {
+      "name": "buyTicket",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nft",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK Whitelisting??"]
+        },
+        {
+          "name": "mintMetadata",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "nftAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "raffleEscrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "RaffleState",
+                "path": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrowAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "mintMasterEdition",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftCollection",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "buyTicketInscription",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nft",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK Whitelisting??"]
+        },
+        {
+          "name": "mintMetadata",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "nftAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "raffleEscrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "RaffleState",
+                "path": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "raffleOwner",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "escrowAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "mintMasterEdition",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftCollection",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "buyTicketMint",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nft",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK Whitelisting??"]
+        },
+        {
+          "name": "mintMetadata",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "nftAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "raffleEscrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "RaffleState",
+                "path": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "raffleOwner",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "escrowAssociatedToken",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "BuyTicketMintArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "claimPrize",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "radiant",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "Mint",
+                "path": "radiant"
+              }
+            ]
+          }
+        },
+        {
+          "name": "raffleAssociatedAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "raffleEscrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "RaffleState",
+                "path": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "radiantAssociatedAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
       "name": "claimRadiant",
       "accounts": [
         {
@@ -620,9 +1012,7 @@
           "name": "owner",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "radiant",
@@ -658,9 +1048,7 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -882,9 +1270,79 @@
           "name": "radiantsDao",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK we know this is the dao wallet"
-          ]
+          "docs": ["CHECK we know this is the dao wallet"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createEscrow",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "Mint",
+                "path": "nft"
+              }
+            ]
+          }
+        },
+        {
+          "name": "nft",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "raffleEscrow",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "RaffleState",
+                "path": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "radiantsDao",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK we know this is the dao wallet"]
         },
         {
           "name": "systemProgram",
@@ -958,6 +1416,79 @@
       ]
     },
     {
+      "name": "createRaffle",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nft",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftAssociatedToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "Mint",
+                "path": "nft"
+              }
+            ]
+          }
+        },
+        {
+          "name": "raffleAssociatedAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftBidding",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateRaffleArgs"
+          }
+        }
+      ]
+    },
+    {
       "name": "depositNft",
       "accounts": [
         {
@@ -974,33 +1505,25 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK Whitelisting??"
-          ]
+          "docs": ["CHECK Whitelisting??"]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1026,9 +1549,7 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "mintMasterEdition",
@@ -1065,17 +1586,13 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "auction",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1124,9 +1641,7 @@
           "name": "auction",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1147,25 +1662,19 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1320,17 +1829,13 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "owner",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "bidEscrow",
@@ -1394,33 +1899,25 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1446,9 +1943,7 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "tokenProgram",
@@ -1469,6 +1964,68 @@
       "args": []
     },
     {
+      "name": "revealWinner",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "raffle"
+              },
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "account": "Mint",
+                "path": "nft"
+              }
+            ]
+          }
+        },
+        {
+          "name": "nft",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftBidding",
+          "isMut": false,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "nft-bidding"
+              }
+            ]
+          }
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "RevealWinnerArgs"
+          }
+        }
+      ]
+    },
+    {
       "name": "updateAllowlists",
       "accounts": [
         {
@@ -1480,9 +2037,7 @@
           "name": "auction",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         }
       ],
       "args": [
@@ -1588,9 +2143,7 @@
               }
             ]
           },
-          "relations": [
-            "owner"
-          ]
+          "relations": ["owner"]
         },
         {
           "name": "nftBidding",
@@ -1633,33 +2186,25 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ],
+          "docs": ["CHECK"],
           "pda": {
             "seeds": [
               {
@@ -1685,9 +2230,7 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": [
-            "CHECK"
-          ]
+          "docs": ["CHECK"]
         },
         {
           "name": "tokenProgram",
@@ -1859,6 +2402,105 @@
           }
         ]
       }
+    },
+    {
+      "name": "RaffleState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "startTimestamp",
+            "type": "i64"
+          },
+          {
+            "name": "endTimestamp",
+            "type": "i64"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "winner",
+            "type": "publicKey"
+          },
+          {
+            "name": "ticketMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "ticketDecimals",
+            "type": "u8"
+          },
+          {
+            "name": "ticketPrice",
+            "type": "u64"
+          },
+          {
+            "name": "burned",
+            "type": "u64"
+          },
+          {
+            "name": "raffleType",
+            "type": "u8"
+          },
+          {
+            "name": "allowlists",
+            "type": {
+              "array": [
+                {
+                  "defined": "Allowlist"
+                },
+                10
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RaffleEscrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "raffle",
+            "type": "publicKey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "collections",
+            "type": {
+              "vec": {
+                "defined": "Collection"
+              }
+            }
+          },
+          {
+            "name": "burned",
+            "type": "u16"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
     }
   ],
   "types": [
@@ -1882,6 +2524,18 @@
           {
             "name": "entityKey",
             "type": "bytes"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuyTicketMintArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "allowlistAux",
+            "type": "string"
           }
         ]
       }
@@ -1973,6 +2627,69 @@
           {
             "name": "collection",
             "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateRaffleArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "startTimestamp",
+            "type": "i64"
+          },
+          {
+            "name": "endTimestamp",
+            "type": "i64"
+          },
+          {
+            "name": "duration",
+            "type": "i64"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "winner",
+            "type": "publicKey"
+          },
+          {
+            "name": "ticketMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "ticketDecimals",
+            "type": "u8"
+          },
+          {
+            "name": "ticketPrice",
+            "type": "u64"
+          },
+          {
+            "name": "burned",
+            "type": "u64"
+          },
+          {
+            "name": "raffleType",
+            "type": "u8"
+          },
+          {
+            "name": "allowlists",
+            "type": {
+              "array": [
+                {
+                  "defined": "Allowlist"
+                },
+                10
+              ]
+            }
           }
         ]
       }
@@ -2099,6 +2816,18 @@
           {
             "name": "burned",
             "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RevealWinnerArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "winner",
+            "type": "publicKey"
           }
         ]
       }
@@ -2239,5 +2968,8 @@
       "name": "PleaseWait",
       "msg": "Please wait for last update to settle before claiming."
     }
-  ]
+  ],
+  "metadata": {
+    "address": "bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy"
+  }
 }

@@ -110,15 +110,77 @@ async function processIncomingMessage(data) {
         if (messageObj && messageObj.method == "transactionNotification") { // change to === in prod
 
             const transaction = [messageObj.params.result.transaction];
-            // console.log(transaction);
 
-            const occurrenceCounter = {};
-            const floorPriceTracker = {};
             const acceptedCollections = {
-                "2SBsLb5CwstwxxDmbanRdvV9vzeACRdvYEJjpPSFjJpE": "Bears Reloaded",
-                "GxPPZB5q1nsUTPw8Kkp4qUpbegrGxHiJfgzm3V43zjAy": "Ded Monkes",
-                "5f2zrjBonizqt6LiHSDfbTPH74sHMZFahYQGyPNh825G": "BAPE",
-                "BiwemBos3Su9QcNUiwkZMbSKi7m959t5oVpmPnM9Z3SH": "LIFINITY Flares"
+              '2SBsLb5CwstwxxDmbanRdvV9vzeACRdvYEJjpPSFjJpE': {
+                name: 'Bears Reloaded',
+                image: '',
+                twitter: 'https://twitter.com/BearsReloaded',
+                decoration: '🐻',
+                link: hyperlink(
+                  'Bears Reloaded',
+                  'https://twitter.com/BearsReloaded'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              BEArZkWNAB8xGRzsKzyQy6orjeZqMefMfmMWbJPqRr6o: {
+                name: 'Solbears',
+                image: '',
+                twitter: 'https://twitter.com/WeAreBuilders_',
+                decoration: '🐻',
+                link: hyperlink(
+                  'Solbears',
+                  'https://twitter.com/BearsReloaded'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              Ah8Jvc4pLq2WCV3MCAme2viDoavmqc7PskUkhrhiF3m8: {
+                name: 'People Nipple Cats',
+                image: '',
+                twitter: 'https://twitter.com/WeAreBuilders_',
+                decoration: '😼',
+                link: hyperlink(
+                  'People Nipple Cats',
+                  'https://twitter.com/BearsReloaded'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              GxPPZB5q1nsUTPw8Kkp4qUpbegrGxHiJfgzm3V43zjAy: {
+                name: 'Ded Monkes',
+                image: '',
+                twitter: 'https://twitter.com/DegenMonkes',
+                decoration: '💀',
+                link: hyperlink(
+                  'Ded Monkes',
+                  'https://twitter.com/DegenMonkes'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              '5f2zrjBonizqt6LiHSDfbTPH74sHMZFahYQGyPNh825G': {
+                name: 'BAPE',
+                image: '',
+                twitter: 'https://twitter.com/WeAreBuilders_',
+                decoration: '🐵',
+                link: hyperlink('BAPE', 'https://twitter.com/WeAreBuilders_'),
+                floorValue: 0,
+                count: 0,
+              },
+              BiwemBos3Su9QcNUiwkZMbSKi7m959t5oVpmPnM9Z3SH: {
+                name: 'LIFINITY Flares',
+                image: '',
+                twitter: 'https://twitter.com/Lifinity_io',
+                decoration: '🔥',
+                link: hyperlink(
+                  'LIFINITY Flares',
+                  'https://twitter.com/Lifinity_io'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
             };
             (async () => {
                 for (const txResponse of transaction) {
@@ -163,6 +225,9 @@ async function processIncomingMessage(data) {
                             let bidData = await program.account.bidEscrow.fetch(highestBidPubkey);
                             let collectionsInBid = await bidData.collections;
                             let oracles = await program.account.oracle.all();
+                            let discordStringBuilder = '';
+                            let totalFloorPrice = 0;
+                            let totalNftsCount = 0;
                             for(let i = 0; i < collectionsInBid.length; i++) {
                                 let currentCollectionObject = collectionsInBid[i];
                                 let currentCollectionCount = Number(currentCollectionObject.count);
@@ -173,46 +238,40 @@ async function processIncomingMessage(data) {
                                 let currentCollectionFloorPrice = Number(currentCollectionOracle.account.floorPrice)/1000000000; // this has 9 decimals
                                 if(currentCollectionId !== "SUB1orE6jSMF8K627BPLXyJY5LthVyDriAxTXdCF4Cy") {
                                     let currentCollectionName = acceptedCollections[currentCollectionId];
-                                    occurrenceCounter[currentCollectionName] = currentCollectionCount;
-                                    floorPriceTracker[currentCollectionName] = currentCollectionFloorPrice;
+                                    acceptedCollections[currentCollectionId]['count'] = currentCollectionCount;
+                                    acceptedCollections[currentCollectionId]['floorValue'] = currentCollectionFloorPrice;
+                                    let currentCollectionValue = currentCollectionCount * currentCollectionFloorPrice;
+                                    totalFloorPrice += currentCollectionValue;
+                                    totalNftsCount += currentCollectionCount;
+                                    if (currentCollectionCount > 0) {
+                                        discordStringBuilder += `${acceptedCollections[currentCollectionId]['decoration']} ${acceptedCollections[currentCollectionId]['link']}: **${currentCollectionCount}** NFTs | Floor: **${currentCollectionFloorPrice.toFixed(2)}** | Value: **${currentCollectionValue.toFixed(2)}**\n`;
+                                    }
                                 }
                             }
 
+                            discordStringBuilder += `🏆 **Total:** **${totalNftsCount}** NFTs 💛 | Value: **${totalFloorPrice.toFixed(
+                              2
+                            )}** SOL `;
                             // After the loop, log the occurrence counts
                             console.log("Occurrences by Collection Name:", occurrenceCounter);
 
-                            let dedMonkesCount = occurrenceCounter['Ded Monkes'] || 0;
-                            let bearsReloadedCount = occurrenceCounter['Bears Reloaded'] || 0;
-                            let bapeCount = occurrenceCounter['BAPE'] || 0;
-                            let lifinityCount = occurrenceCounter['LIFINITY Flares'] || 0;
-                            let dedMonkesFloorPrice = floorPriceTracker['Ded Monkes'] || 0;
-                            let bearsReloadedFloorPrice = floorPriceTracker['Bears Reloaded'] || 0;
-                            let bapeFloorPrice = floorPriceTracker['BAPE'] || 0;
-                            let lifinityFloorPrice = floorPriceTracker['LIFINITY Flares'] || 0;
-
-                            mainImg = 'https://pbs.twimg.com/profile_banners/1446275363202502844/1697575408/1080x360';
-
-                            let totalNftsCount = dedMonkesCount + bearsReloadedCount + bapeCount + lifinityCount;
-                            let totalFloorPrice = (dedMonkesFloorPrice*dedMonkesCount) + (bearsReloadedFloorPrice*bearsReloadedCount) + (bapeFloorPrice*bapeCount) + (lifinityFloorPrice*lifinityCount);
+                            mainImg = 'https://i.ibb.co/86yR3xT/radbanner.png';
 
                             // Discord displaying
                             (async () => {
                                 const solscan = hyperlink('Solscan', `https://solscan.io/account/${highestBidderPubkey}`);
                                 const solanafm = hyperlink('SolanaFM', `https://solana.fm/address/${highestBidderPubkey}`);
 
-                                const DM = hyperlink('Ded Monkes', 'https://twitter.com/DegenMonkes');
-                                const BR = hyperlink('Bears Reloaded', 'https://twitter.com/BearsReloaded');
-                                const BP = hyperlink('BAPE', 'https://twitter.com/WeAreBuilders_');
-                                const LF = hyperlink('LIFINITY Flares', 'https://twitter.com/Lifinity_io');
-
                                 const newBid = new EmbedBuilder()
                                     .setTitle(`**_Prepare the incinerator..._**`)
                                     .setDescription(`**A new high bid has been set!** 🔥`) // can change the emoji when inside the said service, right click on the emoji, copy text
-                                    .setColor('#fce185')
+                                    .setColor('#fce184')
                                     .setImage(`${mainImg}`)
                                     .addFields(
                                         {
-                                            name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs | Floor: **${dedMonkesFloorPrice}** | Value: **${(dedMonkesFloorPrice*dedMonkesCount).toFixed(2)}**\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs | Floor: **${bearsReloadedFloorPrice}** | Value: **${(bearsReloadedFloorPrice*bearsReloadedCount).toFixed(2)}**\n🐵 ${BP}: **${bapeCount}x** NFTs | Floor: **${bapeFloorPrice}** | Value: **${(bapeFloorPrice*bapeCount).toFixed(2)}**\n🔥 ${LF}: **${lifinityCount}x** NFTs | Floor: **${lifinityFloorPrice}** | Value: **${(lifinityFloorPrice*lifinityCount).toFixed(2)}**\n🏆 Total: **${totalNftsCount}** NFTs 💛 | Value: **${totalFloorPrice.toFixed(2)}** SOL`, inline: true
+                                            name: 'Offerings:', 
+                                            value: discordStringBuilder, 
+                                            inline: true
                                             // name: 'Offerings:', value: `💀 ${DM}: **${dedMonkesCount}x** NFTs\n🐻 ${BR}: **${bearsReloadedCount}x** NFTs\n🐵 ${BP}: **${bapeCount}x** NFTs\n🔥 ${LF}: **${lifinityCount}x** NFTs\n🏆 Total: **${totalNftsCount}** NFTs 💛`, inline: true
                                         },
                                     )
