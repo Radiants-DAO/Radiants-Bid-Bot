@@ -627,25 +627,33 @@
           "name": "nft",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK Whitelisting??"]
+          "docs": [
+            "CHECK Whitelisting??"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -671,7 +679,9 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "mintMasterEdition",
@@ -695,6 +705,11 @@
         },
         {
           "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sysvarInstructions",
           "isMut": false,
           "isSigner": false
         },
@@ -723,25 +738,33 @@
           "name": "nft",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK Whitelisting??"]
+          "docs": [
+            "CHECK Whitelisting??"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -767,13 +790,17 @@
           "name": "raffleOwner",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "mintMasterEdition",
@@ -825,25 +852,33 @@
           "name": "nft",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK Whitelisting??"]
+          "docs": [
+            "CHECK Whitelisting??"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -869,13 +904,17 @@
           "name": "raffleOwner",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "tokenMetadataProgram",
@@ -919,7 +958,9 @@
           "name": "owner",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "radiant",
@@ -955,7 +996,9 @@
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1012,7 +1055,9 @@
           "name": "owner",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "radiant",
@@ -1048,7 +1093,9 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1270,7 +1317,9 @@
           "name": "radiantsDao",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK we know this is the dao wallet"]
+          "docs": [
+            "CHECK we know this is the dao wallet"
+          ]
         },
         {
           "name": "systemProgram",
@@ -1342,7 +1391,9 @@
           "name": "radiantsDao",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK we know this is the dao wallet"]
+          "docs": [
+            "CHECK we know this is the dao wallet"
+          ]
         },
         {
           "name": "systemProgram",
@@ -1505,25 +1556,33 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK Whitelisting??"]
+          "docs": [
+            "CHECK Whitelisting??"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1549,7 +1608,9 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "mintMasterEdition",
@@ -1586,19 +1647,23 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
-          "name": "auction",
+          "name": "raffle",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
                 "kind": "const",
                 "type": "string",
-                "value": "auction"
+                "value": "raffle"
               },
               {
                 "kind": "account",
@@ -1641,7 +1706,9 @@
           "name": "auction",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1662,19 +1729,25 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1829,13 +1902,17 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "owner",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "bidEscrow",
@@ -1899,25 +1976,33 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -1943,7 +2028,9 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "tokenProgram",
@@ -2037,7 +2124,9 @@
           "name": "auction",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         }
       ],
       "args": [
@@ -2143,7 +2232,9 @@
               }
             ]
           },
-          "relations": ["owner"]
+          "relations": [
+            "owner"
+          ]
         },
         {
           "name": "nftBidding",
@@ -2186,25 +2277,33 @@
           "name": "nft",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "mintMetadata",
           "isMut": false,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "nftAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
+          "docs": [
+            "CHECK"
+          ],
           "pda": {
             "seeds": [
               {
@@ -2230,7 +2329,9 @@
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"]
+          "docs": [
+            "CHECK"
+          ]
         },
         {
           "name": "tokenProgram",
@@ -2968,8 +3069,5 @@
       "name": "PleaseWait",
       "msg": "Please wait for last update to settle before claiming."
     }
-  ],
-  "metadata": {
-    "address": "bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy"
-  }
+  ]
 }

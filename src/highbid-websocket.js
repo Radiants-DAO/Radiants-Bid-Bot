@@ -253,7 +253,7 @@ async function processIncomingMessage(data) {
                               2
                             )}** SOL `;
                             // After the loop, log the occurrence counts
-                            console.log("Occurrences by Collection Name:", occurrenceCounter);
+                            // console.log("Occurrences by Collection Name:", occurrenceCounter);
 
                             mainImg = 'https://i.ibb.co/86yR3xT/radbanner.png';
 

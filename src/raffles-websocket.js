@@ -181,8 +181,33 @@ async function processIncomingMessage(data) {
                 floorValue: 0,
                 count: 0,
               },
+              "4GyUDKpwpcCz8J2bHsNt2foLpTu8hRXa2f1HaJnV1R1b": {
+                name: 'P2 Farmers',
+                image: '',
+                twitter: 'https://twitter.com/player2world',
+                decoration: '👨‍🌾',
+                link: hyperlink(
+                  'P2 Farmers',
+                  'https://twitter.com/player2world'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              "3pAx1gCrmcVFfGdVFRFaaqDEFq7ngung3nD3Q6mzs18x": {
+                name: 'Sol Slugs',
+                image: '',
+                twitter: 'https://twitter.com/SolSlugsNFT',
+                decoration: '🐌',
+                link: hyperlink(
+                  'Sol Slugs',
+                  'https://twitter.com/SolSlugsNFT'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
             };
             (async () => {
+                let postUpdates = [];
                 for (const txResponse of transaction) {
 
                     // console.log("txResponse: ", txResponse);
@@ -268,6 +293,7 @@ async function processIncomingMessage(data) {
                               currentCollectionId !==
                               'SUB1orE6jSMF8K627BPLXyJY5LthVyDriAxTXdCF4Cy'
                             ) {
+                              console.log("currentCollectionId: ", currentCollectionId);
                               let currentCollectionName =
                                 acceptedCollections[currentCollectionId].name;
                               acceptedCollections[currentCollectionId][
@@ -316,25 +342,25 @@ async function processIncomingMessage(data) {
                               }
                           }
 
-                          discordStringBuilder += `🌞 **User Stats:**\Burned: **${totalNftsCount}** NFTs 💛 | Value: **${totalFloorPrice.toFixed(
+                          discordStringBuilder += `🌞 **User Stats: **\nBurned: **${totalNftsCount}** NFTs 💛 | Value: **${totalFloorPrice.toFixed(
                             2
-                          )}** SOL | 🎟️ Tickets: ${Math.ceil(
+                          )}** SOL | 🎟️ Tickets: **${Math.ceil(
                             Number(totalFloorPrice / 0.02)
-                          ).toFixed(0)}\n`;
-                          discordStringBuilder += `🏆 **Raffle Stats:**\nBurned: **${raffleTotalNftsBurned}** NFTs 💥 | Value: **${raffleTotalValue.toFixed(2)}** SOL | 🎟️ Tickets: **${Math.ceil(
+                          ).toFixed(0)}**\n`;
+                          discordStringBuilder += `🏆 **Raffle Stats: **\nBurned: **${raffleTotalNftsBurned}** NFTs 💥 | Value: **${raffleTotalValue.toFixed(2)}** SOL | 🎟️ Tickets: **${Math.ceil(
                             Number(raffleTotalValue/0.02)
                           ).toFixed(0)}**`;
 
                           // After the loop, log the occurrence counts
                           // console.log("Occurrences by Collection Name:", occurrenceCounter);
 
-                          mainImg = 'https://i.ibb.co/86yR3xT/radbanner.png';
-
+                          
                           // let totalNftsCount = dedMonkesCount + bearsReloadedCount + bapeCount + lifinityCount;
                           // let totalFloorPrice = (dedMonkesFloorPrice*dedMonkesCount) + (bearsReloadedFloorPrice*bearsReloadedCount) + (bapeFloorPrice*bapeCount) + (lifinityFloorPrice*lifinityCount);
-
+                          
                           // Discord displaying
-                          (async () => {
+                          // (async () => {
+                            mainImg = 'https://i.ibb.co/86yR3xT/radbanner.png';
                             const solscan = hyperlink(
                               'Solscan',
                               `https://solscan.io/account/${rafflePayer}`
@@ -344,67 +370,85 @@ async function processIncomingMessage(data) {
                               `https://solana.fm/address/${rafflePayer}`
                             );
 
-                            const newBid = new EmbedBuilder()
-                              .setTitle(`**_Prepare the incinerator..._**`)
-                              .setDescription(
-                                `**A new NFT has been burned!** 🔥`
-                              ) // can change the emoji when inside the said service, right click on the emoji, copy text
-                              .setColor('#fce184')
-                              .setImage(`${mainImg}`)
-                              .addFields({
-                                name: 'Offerings:',
-                                value: discordStringBuilder,
-                                inline: true,
-                              })
-                              .addFields({
-                                name: 'Burner:',
-                                value: `\`${rafflePayer.toString()}\``,
-                                inline: false,
-                              })
-                              .addFields({
-                                name: 'Links:',
-                                value: `🔎 ${solscan} 🕵️ ${solanafm}`,
-                                inline: false,
-                              })
-                              .setFooter({
-                                text: 'https://twitter.com/RadiantsDAO',
-                                iconURL:
-                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png',
-                              });
+                            let newBidObject = {};
+                            newBidObject["title"] = `**_Prepare the incinerator..._**`;
+                            newBidObject["description"] = `**A new NFT has been burned!** 🔥`;
+                            newBidObject["offerings"] = discordStringBuilder;
+                            newBidObject["burner"] = `\`${rafflePayer.toString()}\``;
+                            newBidObject["links"] = `🔎 ${solscan} 🕵️ ${solanafm}`;
+                            postUpdates.push(newBidObject);
 
-                            // Sending embed
-                            for (const [guildId, guild] of client.guilds
-                              .cache) {
-                              if (config.guilds[guildId]) {
-                                const channelId = config.guilds[guildId];
-                                try {
-                                  const channel = await client.channels.fetch(
-                                    channelId.channelId
-                                  ); // Fetch the channel
-                                  if (channel) {
-                                    await channel.send({ embeds: [newBid] });
-                                  } else {
-                                    console.log(
-                                      `Channel not found in guild: ${guildId}`
-                                    );
-                                  }
-                                } catch (error) {
-                                  console.error(
-                                    `Failed to send message in guild: ${guildId}, error: ${error}`
-                                  );
-                                }
-                              } else {
-                                console.log(
-                                  `No channel configured for guild: ${guildId}`
-                                );
-                              }
-                            }
-                          })();
                         }
                     }
                 }
+                // send embeds here instead
+               
+                if(postUpdates.length > 0) {
+                  console.log("result: ", postUpdates);
+                  //for(let m = 0; m < result.length; m++) {
+                  let oneEmbedObject = postUpdates[0];
+                  console.log("oneEmbedObject: ", oneEmbedObject);
+                  (async () => {
+                    mainImg = 'https://i.ibb.co/r3zBxc2/rad-Ticket.png';
+                    const newBid = new EmbedBuilder()
+                      .setTitle(oneEmbedObject["title"])
+                      .setDescription(
+                        oneEmbedObject["description"]
+                      ) // can change the emoji when inside the said service, right click on the emoji, copy text
+                      .setColor('#fce184')
+                      .setImage(`${mainImg}`)
+                      .addFields({
+                        name: 'Offerings:',
+                        value: oneEmbedObject["offerings"],
+                        inline: true,
+                      })
+                      .addFields({
+                        name: 'Burner:',
+                        value: oneEmbedObject["burner"],
+                        inline: false,
+                      })
+                      .addFields({
+                        name: 'Links:',
+                        value: oneEmbedObject["links"],
+                        inline: false,
+                      })
+                      .setFooter({
+                        text: 'https://twitter.com/RadiantsDAO',
+                        iconURL:
+                          'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png',
+                      });
+      
+                    // Sending embed
+                    for (const [guildId, guild] of client.guilds
+                      .cache) {
+                      if (config.guilds[guildId]) {
+                        const channelId = config.guilds[guildId];
+                        try {
+                          const channel = await client.channels.fetch(
+                            channelId.channelId
+                          ); // Fetch the channel
+                          if (channel) {
+                            await channel.send({ embeds: [newBid] });
+                          } else {
+                            console.log(
+                              `Channel not found in guild: ${guildId}`
+                            );
+                          }
+                        } catch (error) {
+                          console.error(
+                            `Failed to send message in guild: ${guildId}, error: ${error}`
+                          );
+                        }
+                      } else {
+                        console.log(
+                          `No channel configured for guild: ${guildId}`
+                        );
+                      }
+                    }
+                  })();
+                }
             })();
-
+            //}
         } else {
             console.log('Whoops... Still not a DepositNft transaction.')
         }
