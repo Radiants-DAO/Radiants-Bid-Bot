@@ -181,6 +181,54 @@ async function processIncomingMessage(data) {
                 floorValue: 0,
                 count: 0,
               },
+              '1qYQboR1jkeDZdbwBCpXbBcNGPTPh9T5iHWmkvyrtAh': {
+                name: 'Netrunner',
+                image: '',
+                twitter: 'https://twitter.com/NetrunnerTax',
+                decoration: '🪙',
+                link: hyperlink(
+                  'Netrunner',
+                  'https://twitter.com/NetrunnerTax'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              A9UQNRecVBGzokYvXr9A727VCHjp3LZMcQXKxqTqY1Zd: {
+                name: 'Ape Energy Labs',
+                image: '',
+                twitter: 'https://twitter.com//Gleam_dApp',
+                decoration: '🔌',
+                link: hyperlink(
+                  'Ape Energy Labs',
+                  'https://twitter.com//Gleam_dApp'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              EBZXnEpDU2JQpPDdmUC8T9NJgD1RU1vxDZFCEj4MmtjL: {
+                name: 'Phase Passports',
+                image: '',
+                twitter: 'https://twitter.com/phaselabs_',
+                decoration: '⚡️',
+                link: hyperlink(
+                  'Phase Passports',
+                  'https://twitter.com/phaselabs_'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
+              '596Ts1WPD3rTUfTvow4rgnMgFvreuJQbQw9YA8Rgg21t': {
+                name: 'Sketchy Scales',
+                image: '',
+                twitter: 'https://twitter.com/SketchyScales',
+                decoration: '🦎',
+                link: hyperlink(
+                  'Sketchy Scales',
+                  'https://twitter.com/SketchyScales'
+                ),
+                floorValue: 0,
+                count: 0,
+              },
             };
             (async () => {
                 for (const txResponse of transaction) {
