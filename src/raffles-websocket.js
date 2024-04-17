@@ -328,7 +328,7 @@ async function processIncomingMessage(data) {
                           // After the loop, log the occurrence counts
                           // console.log("Occurrences by Collection Name:", occurrenceCounter);
 
-                          mainImg = 'https://i.ibb.co/86yR3xT/radbanner.png';
+                          mainImg = 'https://i.ibb.co/r3zBxc2/rad-Ticket.png';
 
                           // let totalNftsCount = dedMonkesCount + bearsReloadedCount + bapeCount + lifinityCount;
                           // let totalFloorPrice = (dedMonkesFloorPrice*dedMonkesCount) + (bearsReloadedFloorPrice*bearsReloadedCount) + (bapeFloorPrice*bapeCount) + (lifinityFloorPrice*lifinityCount);
