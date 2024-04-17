@@ -48,27 +48,7 @@
         {
           "name": "bidEscrow",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "BidEscrow",
-                "path": "bid_escrow.auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "escrowAssociatedToken",
@@ -93,136 +73,27 @@
         {
           "name": "programAuthority",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "murder-tree"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "ConfigAccount",
-                "path": "config_account"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "murder_tree"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "collectionMetadata",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "metadata"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "token_metadata_program"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "collection"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "token_metadata_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "collectionMasterEdition",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "metadata"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "token_metadata_program"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "collection"
-              },
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "edition"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "token_metadata_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "entityCreator",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "entity_creator"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "ConfigAccount",
-                "path": "config_account"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "murder_tree"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "treeAuthority",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "merkle_tree"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "bubblegum_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "merkleTree",
@@ -232,35 +103,12 @@
         {
           "name": "bubblegumSigner",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "collection_cpi"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "bubblegum_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "nftBidding",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "murderTree",
@@ -348,27 +196,7 @@
         {
           "name": "bidEscrow",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "BidEscrow",
-                "path": "bid_escrow.auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "escrowAssociatedToken",
@@ -393,134 +221,27 @@
         {
           "name": "programAuthority",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "murder-tree"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "config_account"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "murder_tree"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "collectionMetadata",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "metadata"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "token_metadata_program"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "collection"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "token_metadata_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "collectionMasterEdition",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "metadata"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "token_metadata_program"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "collection"
-              },
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "edition"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "token_metadata_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "entityCreator",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "entity_creator"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "config_account"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "murder_tree"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "treeAuthority",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "merkle_tree"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "bubblegum_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "merkleTree",
@@ -530,35 +251,12 @@
         {
           "name": "bubblegumSigner",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "collection_cpi"
-              }
-            ],
-            "programId": {
-              "kind": "account",
-              "type": "publicKey",
-              "path": "bubblegum_program"
-            }
-          }
+          "isSigner": false
         },
         {
           "name": "nftBidding",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "murderTree",
@@ -645,27 +343,7 @@
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "RaffleState",
-                "path": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "escrowAssociatedToken",
@@ -695,6 +373,11 @@
         },
         {
           "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sysvarInstructions",
           "isMut": false,
           "isSigner": false
         },
@@ -741,27 +424,7 @@
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "RaffleState",
-                "path": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "raffleOwner",
@@ -843,27 +506,7 @@
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "RaffleState",
-                "path": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "raffleOwner",
@@ -929,22 +572,7 @@
         {
           "name": "raffle",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "radiant"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "raffleAssociatedAccount",
@@ -955,27 +583,7 @@
           "name": "raffleEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "RaffleState",
-                "path": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "radiantAssociatedAccount",
@@ -1022,22 +630,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "radiant"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "auctionAssociatedAccount",
@@ -1048,27 +641,7 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "AuctionState",
-                "path": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "radiantAssociatedAccount",
@@ -1156,22 +729,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "auctionAssociatedAccount",
@@ -1219,22 +777,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nft",
@@ -1244,27 +787,7 @@
         {
           "name": "bidEscrow",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "AuctionState",
-                "path": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "radiantsDao",
@@ -1291,22 +814,7 @@
         {
           "name": "raffle",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nft",
@@ -1316,27 +824,7 @@
         {
           "name": "raffleEscrow",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "RaffleState",
-                "path": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "radiantsDao",
@@ -1363,42 +851,12 @@
         {
           "name": "oracle",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "oracle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              },
-              {
-                "kind": "arg",
-                "type": {
-                  "defined": "CreateOracleArgs"
-                },
-                "path": "args.collection"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nftBidding",
           "isMut": false,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -1436,22 +894,7 @@
         {
           "name": "raffle",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "raffleAssociatedAccount",
@@ -1523,27 +966,7 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "AuctionState",
-                "path": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "escrowAssociatedToken",
@@ -1553,6 +976,36 @@
         },
         {
           "name": "mintMasterEdition",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenRecord",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destTokenRecord",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorizationRules",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authRulesProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sysvarInstructions",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
           "isMut": false,
           "isSigner": false
         },
@@ -1589,25 +1042,10 @@
           "docs": ["CHECK"]
         },
         {
-          "name": "auction",
+          "name": "raffle",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "nftBidding",
@@ -1641,22 +1079,7 @@
           "name": "auction",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "nft",
@@ -1674,27 +1097,7 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "AuctionState",
-                "path": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "systemProgram",
@@ -1703,6 +1106,46 @@
         }
       ],
       "args": []
+    },
+    {
+      "name": "editRaffle",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nft",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "raffle",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["CHECK"]
+        },
+        {
+          "name": "nftBidding",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "EditRaffleArgs"
+          }
+        }
+      ]
     },
     {
       "name": "initNftBidding",
@@ -1725,16 +1168,7 @@
         {
           "name": "nftBidding",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -1765,22 +1199,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -1808,22 +1227,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nft",
@@ -1840,27 +1244,7 @@
         {
           "name": "bidEscrow",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "AuctionState",
-                "path": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -1917,27 +1301,7 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "BidEscrow",
-                "path": "bid_escrow.auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "escrowAssociatedToken",
@@ -1974,22 +1338,7 @@
         {
           "name": "raffle",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "raffle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nft",
@@ -1999,16 +1348,7 @@
         {
           "name": "nftBidding",
           "isMut": false,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -2060,22 +1400,7 @@
         {
           "name": "auction",
           "isMut": true,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Mint",
-                "path": "nft"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "nft",
@@ -2085,16 +1410,7 @@
         {
           "name": "nftBidding",
           "isMut": false,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -2123,41 +1439,12 @@
           "name": "oracle",
           "isMut": true,
           "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "oracle"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "owner"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "Oracle",
-                "path": "oracle.collection"
-              }
-            ]
-          },
           "relations": ["owner"]
         },
         {
           "name": "nftBidding",
           "isMut": false,
-          "isSigner": false,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "nft-bidding"
-              }
-            ]
-          }
+          "isSigner": false
         }
       ],
       "args": [
@@ -2204,33 +1491,48 @@
           "name": "bidEscrow",
           "isMut": true,
           "isSigner": false,
-          "docs": ["CHECK"],
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "type": "string",
-                "value": "bid"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "account": "BidEscrow",
-                "path": "bid_escrow.auction"
-              },
-              {
-                "kind": "account",
-                "type": "publicKey",
-                "path": "payer"
-              }
-            ]
-          }
+          "docs": ["CHECK"]
         },
         {
           "name": "escrowAssociatedToken",
           "isMut": true,
           "isSigner": false,
           "docs": ["CHECK"]
+        },
+        {
+          "name": "mintMasterEdition",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenRecord",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destTokenRecord",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorizationRules",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authRulesProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "sysvarInstructions",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
         },
         {
           "name": "tokenProgram",
@@ -2253,57 +1555,88 @@
   ],
   "accounts": [
     {
-      "name": "Oracle",
+      "name": "TreeConfig",
+      "docs": ["Account: TreeConfig"],
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "floorPrice",
-            "type": "u64"
-          },
-          {
-            "name": "twapFloorPrice",
-            "type": "u64"
-          },
-          {
-            "name": "lastSalePrice",
-            "type": "u64"
-          },
-          {
-            "name": "avgSalePrice",
-            "type": "u64"
-          },
-          {
-            "name": "lastUpdated",
-            "type": "u64"
-          },
-          {
-            "name": "owner",
+            "name": "treeCreator",
             "type": "publicKey"
           },
           {
-            "name": "collection",
+            "name": "treeDelegate",
             "type": "publicKey"
+          },
+          {
+            "name": "totalMintCapacity",
+            "type": "u64"
+          },
+          {
+            "name": "numMinted",
+            "type": "u64"
+          },
+          {
+            "name": "isPublic",
+            "type": "bool"
           }
         ]
       }
     },
     {
-      "name": "NftBidding",
+      "name": "ConfigAccount",
       "type": {
         "kind": "struct",
         "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
           {
             "name": "admin",
             "type": "publicKey"
           },
           {
-            "name": "dev",
+            "name": "programAuthority",
             "type": "publicKey"
           },
           {
             "name": "bump",
             "type": "u8"
+          },
+          {
+            "name": "creator",
+            "type": "publicKey"
+          },
+          {
+            "name": "updateAuthority",
+            "type": "publicKey"
+          },
+          {
+            "name": "collection",
+            "type": "publicKey"
+          },
+          {
+            "name": "collectionBumpSeed",
+            "type": "u8"
+          },
+          {
+            "name": "treasuryMint",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "maxSupply",
+            "type": "u64"
+          },
+          {
+            "name": "merkleTree",
+            "type": "publicKey"
           }
         ]
       }
@@ -2404,6 +1737,98 @@
       }
     },
     {
+      "name": "NftBidding",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "publicKey"
+          },
+          {
+            "name": "dev",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Oracle",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "floorPrice",
+            "type": "u64"
+          },
+          {
+            "name": "twapFloorPrice",
+            "type": "u64"
+          },
+          {
+            "name": "lastSalePrice",
+            "type": "u64"
+          },
+          {
+            "name": "avgSalePrice",
+            "type": "u64"
+          },
+          {
+            "name": "lastUpdated",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "collection",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RaffleEscrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "raffle",
+            "type": "publicKey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "collections",
+            "type": {
+              "vec": {
+                "defined": "Collection"
+              }
+            }
+          },
+          {
+            "name": "burned",
+            "type": "u16"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
       "name": "RaffleState",
       "type": {
         "kind": "struct",
@@ -2458,42 +1883,6 @@
                 10
               ]
             }
-          },
-          {
-            "name": "bump",
-            "type": "u8"
-          }
-        ]
-      }
-    },
-    {
-      "name": "RaffleEscrow",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "owner",
-            "type": "publicKey"
-          },
-          {
-            "name": "raffle",
-            "type": "publicKey"
-          },
-          {
-            "name": "amount",
-            "type": "u64"
-          },
-          {
-            "name": "collections",
-            "type": {
-              "vec": {
-                "defined": "Collection"
-              }
-            }
-          },
-          {
-            "name": "burned",
-            "type": "u16"
           },
           {
             "name": "bump",
@@ -2750,6 +2139,25 @@
       }
     },
     {
+      "name": "EditRaffleArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "allowlists",
+            "type": {
+              "array": [
+                {
+                  "defined": "Allowlist"
+                },
+                10
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
       "name": "MigrateAuctionStateArgs",
       "type": {
         "kind": "struct",
@@ -2968,8 +2376,5 @@
       "name": "PleaseWait",
       "msg": "Please wait for last update to settle before claiming."
     }
-  ],
-  "metadata": {
-    "address": "bidoyoucCtwvPJwmW4W9ysXWeesgvGxEYxkXmoXTaHy"
-  }
+  ]
 }
